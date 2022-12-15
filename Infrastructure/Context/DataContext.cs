@@ -12,7 +12,7 @@ public class DataContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Employee>()
-            .HasOne(e => e.Manager)
+            .HasOptional(e => e.Manager)
             .WithMany()
             .HasForeignKey(m => m.ManagerId);
         modelBuilder.Entity<JobGrade>(
